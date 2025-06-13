@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تسجيل دخول المسؤول</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 2rem; text-align: center; }
+    input, button {
+      padding: 1rem;
+      margin: 0.5rem 0;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: #9C27B0;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>تسجيل دخول المسؤول</h2>
+  <input id="adminPassword" type="password" placeholder="كلمة المرور">
+  <button onclick="checkLogin()">دخول</button>
+  <p id="msg" style="color:red;"></p>
+
+  <script>
+    function checkLogin() {
+      const pass = document.getElementById('adminPassword').value.trim();
+      const correctPassword = "admin123"; // 🔐 يمكنك تغييره
+
+      if (pass === correctPassword) {
+        localStorage.setItem("isAdmin", "true");
+        window.location.href = "admin-dashboard.html";
+      } else {
+        document.getElementById('msg').textContent = "كلمة المرور غير صحيحة";
+      }
+    }
+  </script>
+</body>
+</html>
