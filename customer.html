@@ -41,7 +41,9 @@
 
     function loadBarbers() {
       const query = document.getElementById("searchArea").value.toLowerCase();
-      db.ref("barbers").once("value").then(snap => {
+     db.ref("barbers").on("value", snap => {
+  // إعادة رسم البطاقات مباشرة عند كل تحديث
+});.then(snap => {
         container.innerHTML = "";
         const barbers = snap.val();
         if (barbers) {
